@@ -31,7 +31,7 @@ app.get("/git/push",async (req,res)=>{
         await gitStatus()
         await gitAdd()
         await gitStatus()
-        await gitCommit()
+        await gitCommit('custom commit msg log')
         await gitPush()
         return res.send({msg:"Success Pushed"})
     }catch(err){
