@@ -26,10 +26,9 @@ async function gitStatus() {
     }
 }
 
-async function gitCommit() {
-    const RandomString = crypto.randomBytes(16).toString('hex');
+async function gitCommit(msg=crypto.randomBytes(16).toString('hex')) {
     try {
-        const { stdout, stderr } = await exec(`git commit -m "${RandomString}"`);
+        const { stdout, stderr } = await exec(`git commit -m "${msg}"`);
         if (stderr) {
             console.log(`stderr -- ${stderr}`);
         }
