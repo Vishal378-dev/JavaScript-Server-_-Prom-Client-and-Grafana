@@ -32,12 +32,12 @@ async function gitStatus(){
 }
 async function gitCommit(){
     const RandomString = crypto.randomBytes(16).toString('hex')
-    exec(`git commit -m ${RandomString}`,(error,stdout,stderr)=>{
+    exec(`git commit -m "${RandomString}"`,(error,stdout,stderr)=>{
         callBackFn(error,stdout,stderr)
     })
 }
 async function gitPush(){
-    exec("git push -u origin main",(error,stdout,stderr)=>{
+    exec("git push",(error,stdout,stderr)=>{
         callBackFn(error,stdout,stderr)
     })
 }
