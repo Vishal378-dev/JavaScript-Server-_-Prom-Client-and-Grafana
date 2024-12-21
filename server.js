@@ -1,13 +1,14 @@
+require("dotenv").config()
 const express= require("express");
-const logger = require("./logger/log");
 const morgan = require("morgan");
 const responseTime=require("response-time")
-require("dotenv").config()
-const app=express()
 const fs=require("fs")
+const client=require("prom-client");
+const logger = require("./logger/log");
+const { gitAdd, gitStatus, gitCommit, gitPush } = require("./gitPush");
+const app=express()
 
 app.use(morgan('combined'))
-const client=require("prom-client")
 
 const collectDefaultMetrices=client.collectDefaultMetrics
 collectDefaultMetrices();
@@ -25,6 +26,19 @@ app.use(responseTime((req,res,time)=>{
     }).observe(time)
 }))
 
+app.get("/git/push",(req,res)=>{
+    try{
+        gitStatus()
+        gitAdd()
+        gitStatus()
+        gitCommit()
+        gitPush()
+        return res.send({msg:"Success Pushed"})
+    }catch(err){
+        console.log(err)
+        return res.send({msg:"something went wrong"})
+    }
+})
 app.get('/metrics', async (req, res) => {
   res.set('Content-Type', client.register.contentType);
   res.end(await client.register.metrics());
