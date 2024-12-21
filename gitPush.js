@@ -1,49 +1,59 @@
-const util=require('util')
-const exec=util.promisify(require('child_process').exec)
-const crypto = require("node:crypto")
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+const crypto = require("node:crypto");
 
-/*
-  git add .
-  git status
-  git commit -m "Random id"
-  git push
-*/
-
-function callBackFn(error,stdout,stderr){
-    if(error){
-        console.log(`error -- ${error}`)
+async function gitAdd() {
+    try {
+        const { stdout, stderr } = await exec("git add .");
+        if (stderr) {
+            console.log(`stderr -- ${stderr}`);
+        }
+        console.log(`stdout -- ${stdout}`);
+    } catch (error) {
+        console.log(`error -- ${error}`);
     }
-    if(stderr){
-        console.log(`stderr -- ${stderr}`)
+}
+
+async function gitStatus() {
+    try {
+        const { stdout, stderr } = await exec("git status");
+        if (stderr) {
+            console.log(`stderr -- ${stderr}`);
+        }
+        console.log(`stdout -- ${stdout}`);
+    } catch (error) {
+        console.log(`error -- ${error}`);
     }
-    console.log(`stdout -- ${stdout}`)
 }
 
-async function gitAdd(){
-    exec("git add .",(error,stdout,stderr)=>{
-        callBackFn(error,stdout,stderr)
-    })
+async function gitCommit() {
+    const RandomString = crypto.randomBytes(16).toString('hex');
+    try {
+        const { stdout, stderr } = await exec(`git commit -m "${RandomString}"`);
+        if (stderr) {
+            console.log(`stderr -- ${stderr}`);
+        }
+        console.log(`stdout -- ${stdout}`);
+    } catch (error) {
+        console.log(`error -- ${error}`);
+    }
 }
 
-async function gitStatus(){
-    exec("git status",(error,stdout,stderr)=>{
-        callBackFn(error,stdout,stderr)
-    })
+async function gitPush() {
+    try {
+        const { stdout, stderr } = await exec("git push");
+        if (stderr) {
+            console.log(`stderr -- ${stderr}`);
+        }
+        console.log(`stdout -- ${stdout}`);
+    } catch (error) {
+        console.log(`error -- ${error}`);
+    }
 }
-async function gitCommit(){
-    const RandomString = crypto.randomBytes(16).toString('hex')
-    exec(`git commit -m "${RandomString}"`,(error,stdout,stderr)=>{
-        callBackFn(error,stdout,stderr)
-    })
-}
-async function gitPush(){
-    exec("git push",(error,stdout,stderr)=>{
-        callBackFn(error,stdout,stderr)
-    })
-}
+
 module.exports = {
     gitAdd,
     gitCommit,
     gitStatus,
     gitPush
-} 
+};
