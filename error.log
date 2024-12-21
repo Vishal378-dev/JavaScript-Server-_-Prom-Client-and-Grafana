@@ -1,0 +1,8 @@
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{
+  level: 'error',
+  message: 'error',
+  label: 'right meow!',
+  timestamp: '2024-12-14T08:17:29.949Z'
+}

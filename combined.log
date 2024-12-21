@@ -1,0 +1,47 @@
+{"level":"info","message":"Wheelo "}
+{"level":"info","message":"Wheelo "}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{
+  level: 'error',
+  message: 'error',
+  label: 'right meow!',
+  timestamp: '2024-12-14T08:17:29.949Z'
+}
+{
+  message: 'hello',
+  level: 'info',
+  timestamp: '2024-12-14T08:32:12.069Z'
+}
+{
+  message: 'hello',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2024-12-14T08:35:52.215Z'
+}
+{
+  message: 'hello',
+  level: 'info',
+  timestamp: '2024-12-14T08:38:55.797Z'
+}
+{
+  message: 'hello',
+  level: '\x1B[32minfo\x1B[39m',
+  timestamp: '2024-12-14T08:39:47.682Z'
+}
+{"level":"info","message":"hello","timestamp":"2024-12-14T08:41:39.511Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-14T08:42:20.819Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-14T08:42:42.381Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-14T08:43:07.862Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-14T09:04:10.871Z"}
+{"level":"info","message":{},"timestamp":"2024-12-14T13:55:45.958Z"}
+{"level":"info","message":{},"timestamp":"2024-12-14T13:55:48.687Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:12:38.091Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:14:37.918Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:14:40.231Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:15:23.894Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:15:40.096Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:15:42.180Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:15:43.347Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:16:43.097Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:17:57.753Z"}
+{"level":"info","message":"hello","timestamp":"2024-12-15T12:17:58.954Z"}
