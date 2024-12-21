@@ -26,13 +26,13 @@ app.use(responseTime((req,res,time)=>{
     }).observe(time)
 }))
 
-app.get("/git/push",(req,res)=>{
+app.get("/git/push",async (req,res)=>{
     try{
-        gitStatus()
-        gitAdd()
-        gitStatus()
-        gitCommit()
-        gitPush()
+        await gitStatus()
+        await gitAdd()
+        await gitStatus()
+        await gitCommit()
+        await gitPush()
         return res.send({msg:"Success Pushed"})
     }catch(err){
         console.log(err)
